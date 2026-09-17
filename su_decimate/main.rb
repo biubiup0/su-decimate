@@ -333,6 +333,7 @@ module SUDecimate
         tris.each do |(a, b, c)|
           tp = [pts[a], pts[b], pts[c]]
           tu = uvs ? [uvs[a], uvs[b], uvs[c]] : nil
+          sig = [a, b, c]                    # 先用局部索引去重，稍后用网格点索引再判一次
           next if SUDecimate.poly_area(tp) <= 0.0
           ids = tp.map do |p|
             k = [(p.x * 1e6).round, (p.y * 1e6).round, (p.z * 1e6).round]
