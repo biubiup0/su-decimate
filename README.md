@@ -2,6 +2,8 @@
 
 解决「模型太大、很卡」：先**扫描面数**找出重物，再**减面**降面数，尽量保持外观不变、不破面。
 
+**Mac 版可用。** 本插件在 **SketchUp 2026 for Mac（中文界面）** 上开发并实测通过：纯 Ruby 扩展，不依赖任何系统组件、无需额外安装运行库，macOS 直接可用；Windows 版 SketchUp 同样适用。
+
 ## 功能
 
 ### 1. 面数扫描…（筛选重物）
@@ -23,12 +25,18 @@
 
 ## 安装
 
-把 `su_decimate.rb` 和 `su_decimate/` 文件夹一起放进 SketchUp 的 Plugins 目录：
+**最省事：** 下载 [最新版 su_decimate.rbz](https://github.com/biubiup0/su-decimate/releases/latest/download/su_decimate.rbz)，
+SketchUp 菜单 **窗口 → 扩展程序管理器 → 安装扩展程序**，选中这个 `.rbz` 即可（仓库根目录也附了同一个文件）。
+装完重启 SketchUp，菜单位置见下方。
+
+**手工安装（macOS）：** 把 `su_decimate.rb` 和 `su_decimate/` 文件夹一起放进 SketchUp 的 Plugins 目录：
 
 - macOS：`~/Library/Application Support/SketchUp <版本>/SketchUp/Plugins/`
 - Windows：`%AppData%\SketchUp\SketchUp <版本>\SketchUp\Plugins\`
 
-或者把仓库打包成 `.rbz`（zip 格式，根目录含 `su_decimate.rb` + `su_decimate/`），用 **窗口 → 扩展程序管理器 → 安装扩展程序** 安装。
+Mac 上找不到 Plugins 文件夹时：SketchUp 菜单 **扩展 → 开发者 → 打开插件目录** 可直接跳转（那是 Mac 版 SketchUp 的插件目录入口）。
+
+也可以自己打包成 `.rbz`（zip 格式，根目录含 `su_decimate.rb` + `su_decimate/`），用 **窗口 → 扩展程序管理器 → 安装扩展程序** 安装。
 
 安装后菜单：**扩展 → 减面工具 → 面数扫描… / 减面… / 关于·使用说明**
 
@@ -69,6 +77,7 @@
 ```
 su_decimate.rb          扩展加载器（注册扩展 + 菜单）
 su_decimate/main.rb     全部实现：扫描、减面引擎、HtmlDialog 界面
+su_decimate.rbz         打包好的安装包（由上面两个文件压成，Extension Manager 直接装）
 ```
 
 ## 版本
